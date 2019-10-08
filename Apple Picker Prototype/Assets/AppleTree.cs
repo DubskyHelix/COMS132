@@ -5,13 +5,12 @@ using UnityEngine;
 public class AppleTree : MonoBehaviour
 {
     [Header("Set in Inspector")]
-    // Prefab for instantiating apples
+
     public GameObject applePrefab;
 
-    // Speed at which the AppleTree moves
+
     public float speed = 1f;
 
-    // Distance where AppleTree turns around
     public float leftAndRightEdge = 10f;
 
     // Chance that the AppleTree will change directions
@@ -48,7 +47,6 @@ public class AppleTree : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Changing Directions Randomly is now time-based because of FixedUpdate()
         if (Random.value < chanceToChangeDirections)
         {
             speed *= -1;

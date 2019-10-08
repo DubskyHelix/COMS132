@@ -252,7 +252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HighScore: 0'
+  m_Text: ' High Score: 0'
 --- !u!222 &228113666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -6}
-  m_SizeDelta: {x: 256, y: 32}
+  m_SizeDelta: {x: 180, y: 32}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &936436104
 MonoBehaviour:
@@ -444,7 +444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 'Score: 0'
 --- !u!222 &936436105
 CanvasRenderer:
   m_ObjectHideFlags: 0
