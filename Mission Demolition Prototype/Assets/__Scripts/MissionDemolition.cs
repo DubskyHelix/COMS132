@@ -51,7 +51,7 @@ public class MissionDemolition : MonoBehaviour
         castle = Instantiate<GameObject>(castles[level]);
         castle.transform.position = castlePos;
         shotsTaken = 0;
-        SwitchView("wShow Both");
+        SwitchView("Show Both");
         ProjectileLine.S.Clear();
         Goal.goalMet = false;
         UpdateGUI();
@@ -78,6 +78,35 @@ public class MissionDemolition : MonoBehaviour
         Invoke("NextLevel", 2f);
         }
     }
+
+    public void SwitchView(string eView = "")
+    {
+        if (eView == "")
+        {
+            eView = uitButton.text;
+        }
+        showing = eView;
+        switch (showing)
+        {
+            case "Show Slingshot":
+                FollowCam.POI = null;
+                uitButton.text = "Show Castle";
+                break;
+            case "Show Castle":
+                FollowCam.POI = S.castle;
+                uitButton.text = "Show Both";
+                break;
+            case "Show Both":
+                FollowCam.POI = GameObject.Find("ViewBoth");
+                uitButton.text = "Show Slingshot";
+                break;
+        }
+    }
+
+    public static void ShotFired()
+    {
+        S.shotsTaken++;
+    }
     void NextLevel()
     {
         level++;
@@ -88,32 +117,5 @@ public class MissionDemolition : MonoBehaviour
         StartLevel();
     }
 
-    public void SwitchView(string eView = "")
-    {
-        if (eView == "")
-        {
-        eView = uitButton.text;
-        }
-        showing = eView;
-    switch (showing)
-    {
-        case "Show Slingshot":
-            FollowCam.POI = null;
-            uitButton.text = "Show Castle";
-            break;
-        case "Show Castle":
-            FollowCam.POI = S.castle;
-            uitButton.text = "Show Both";
-            break;
-        case "Show Both":
-            FollowCam.POI = GameObject.Find("ViewBoth");
-            uitButton.text = "Show Slingshot";
-            break;
-    }
-    }
 
-    public static void ShotFired()
-    {
-    S.shotsTaken++;
-    }
 }
