@@ -17,6 +17,7 @@ public class MissionDemolition : MonoBehaviour
     [Header("Set in Inspector")]
     public Text uitLevel;
     public Text uitShots;
+    public Text uitCoin;
     public Text uitButton;
     public Vector3 castlePos;
     public GameObject[] castles;
@@ -25,6 +26,7 @@ public class MissionDemolition : MonoBehaviour
     public int level;
     public int levelMax;
     public int shotsTaken;
+    public int coinGet;
     public GameObject castle;
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";
@@ -51,6 +53,7 @@ public class MissionDemolition : MonoBehaviour
         castle = Instantiate<GameObject>(castles[level]);
         castle.transform.position = castlePos;
         shotsTaken = 0;
+        coinGet = 0;
         SwitchView("Show Both");
         ProjectileLine.S.Clear();
         Goal.goalMet = false;
@@ -62,6 +65,7 @@ public class MissionDemolition : MonoBehaviour
     {
         uitLevel.text = "Level: " + (level + 1) + "of " + levelMax;
         uitShots.text = "Shots Taken: " + shotsTaken;
+        uitCoin.text = "Coin Get: " + coinGet +" of 3";
     }
 
     void Update()
@@ -115,6 +119,11 @@ public class MissionDemolition : MonoBehaviour
         level = 0;
         }
         StartLevel();
+    }
+
+    public static void CoinGotten()
+    {
+        S.coinGet++;
     }
 
 
