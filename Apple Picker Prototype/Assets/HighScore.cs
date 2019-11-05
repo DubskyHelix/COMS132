@@ -21,5 +21,6 @@ Awake()
     {
         Text gt = this.GetComponent<Text>();
         gt.text = "High Score: " + score;
+        PlayerPrefs.SetInt("HighScore", score);
     }
 }
