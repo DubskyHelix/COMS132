@@ -121,16 +121,4 @@ public class Boid : MonoBehaviour {
     }
 
     public Rigidbody rigid { get; private set; }
-
-    public bool attackingCamera
-    {
-        get; private set;
-    }
-
-    void Update()
-    {
-        attackingCamera = Input.GetKey(KeyCode.A);
-        InstantiateBoid();
-    }
-
 }
